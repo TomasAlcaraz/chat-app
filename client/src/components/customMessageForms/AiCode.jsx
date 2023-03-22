@@ -1,15 +1,15 @@
+import { usePostAiCodeMutation } from "@/state/api";
 import React, { useState } from "react";
 import MessageFormUI from "./MessageFormUI";
 
-export default function StandardMessageForm({ props, activeChat }) {
+const AiCode = ({ props, activeChat }) => {
   const [message, setMessage] = useState("");
   const [attachment, setAttachment] = useState("");
+  const [triggerCode] = usePostAiCodeMutation();
 
-  function handleChange(e) {
-    setMessage(e.target.value);
-  }
+  const handleChange = (e) => setMessage(e.target.value);
 
-  async function handleSubmit() {
+  const handleSubmit = async () => {
     const date = new Date()
       .toISOString()
       .replace("T", " ")
@@ -24,9 +24,10 @@ export default function StandardMessageForm({ props, activeChat }) {
     };
 
     props.onSubmit(form);
+    triggerCode(form);
     setMessage("");
     setAttachment("");
-  }
+  };
 
   return (
     <MessageFormUI
@@ -36,4 +37,6 @@ export default function StandardMessageForm({ props, activeChat }) {
       handleSubmit={handleSubmit}
     />
   );
-}
+};
+
+export default AiCode;
