@@ -47,6 +47,7 @@ body,
   height: 15px !important;
 }
 
+
 .login-page {
   background-color: $primary-500;
   height: 100%;
@@ -76,6 +77,21 @@ body,
   margin: 10px 0;
   background-color: $primary-600;
   color: $tertiary-50;
+}
+
+.login-button {
+  background-color: #129b8b;
+  border: none;
+  color: #f0f6f7;
+  width: 4.5rem;
+  height: 1.8rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #15d3bd;
 }
 
 .register-change {
