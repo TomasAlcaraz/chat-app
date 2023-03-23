@@ -25,6 +25,10 @@ const configuration = new Configuration({
 });
 export const openai = new OpenAIApi(configuration);
 
+app.get("/", (req, res) => {
+  res.send("Listening");
+});
+
 /* ROUTES */
 app.use("/openai", openAiRoutes);
 app.use("/auth", authRoutes);
